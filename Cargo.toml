@@ -1,45 +1,42 @@
-cargo-features = ["trim-paths"]
-
 [workspace]
 members = [
-    "fedimintd",
-    "fedimint-cli",
-    "modules/fedi-social/common",
-    "modules/fedi-social/server",
-    "modules/fedi-social/client",
-    "bridge/fedi-ffi",
-    "bridge/ffi-bindgen",
-    "bridge/fedi-wasm",
-    "bridge/fedi-rpc-server",
-    "modules/stability-pool/client",
-    "modules/stability-pool/common",
-    "modules/stability-pool/server",
-    "modules/stability-pool/tests",
-    "fedi-db-dump",
-    "devi",
-    "fedi-api-types",
-    "fedi-core",
-    "fedi-debug",
+  "fedimintd",
+  "fedimint-cli",
+  "modules/fedi-social/common",
+  "modules/fedi-social/server",
+  "modules/fedi-social/client",
+  "bridge/fedi-ffi",
+  "bridge/ffi-bindgen",
+  "bridge/fedi-wasm",
+  "bridge/fedi-rpc-server",
+  "modules/stability-pool/client",
+  "modules/stability-pool/common",
+  "modules/stability-pool/server",
+  "modules/stability-pool/tests",
+  "fedi-db-dump",
+  "devi",
+  "fedi-api-types",
+  "fedi-core",
+  "fedi-debug",
 ]
 default-members = [
-    "fedimintd",
-    "fedimint-cli",
-    "fedi-api-types",
-    "modules/fedi-social/common",
-    "modules/fedi-social/server",
-    "modules/fedi-social/client",
-    "bridge/fedi-ffi",
-    "bridge/ffi-bindgen",
-    "modules/stability-pool/client",
-    "modules/stability-pool/common",
-    "modules/stability-pool/server",
-    "modules/stability-pool/tests",
-    "devi",
+  "fedimintd",
+  "fedimint-cli",
+  "fedi-api-types",
+  "modules/fedi-social/common",
+  "modules/fedi-social/server",
+  "modules/fedi-social/client",
+  "bridge/fedi-ffi",
+  "bridge/ffi-bindgen",
+  "modules/stability-pool/client",
+  "modules/stability-pool/common",
+  "modules/stability-pool/server",
+  "modules/stability-pool/tests",
+  "devi",
 ]
 resolver = "2"
 
 [profile.release]
-trim-paths = "all"
 lto = "fat"
 codegen-units = 1
 # we need debug symbols for debugging panics and such, at least on the backend
@@ -82,8 +79,8 @@ impl-tools = "0.10.0"
 itertools = "0.12.1"
 rand = "0.8"
 reqwest = { version = "0.12", features = [
-    "json",
-    "rustls-tls",
+  "json",
+  "rustls-tls",
 ], default-features = false }
 secp256k1 = "0.27.0"
 secp256k1-zkp = "0.9.2"
@@ -139,7 +136,6 @@ ln-gateway = { git = "https://github.com/fedibtc/fedimint", tag = "v0.4.2-rc.1-f
 
 [profile.dev]
 debug = "line-tables-only"
-trim-paths = "object"
 
 # in dev mode optimize crates that are perf-critical (usually just crypto crates)
 [profile.dev.package]
